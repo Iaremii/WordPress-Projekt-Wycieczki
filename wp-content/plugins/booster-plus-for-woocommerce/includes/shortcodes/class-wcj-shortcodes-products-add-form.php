@@ -288,7 +288,7 @@ class WCJ_Products_Add_Form_Shortcodes extends WCJ_Shortcodes {
 							str_replace(
 								'%product_title%',
 								$args['title'],
-								get_option( 'wcj_product_by_user_message_product_successfully_added', __( '"%product_title%" successfully added!', 'woocommerce-jetpack' ) ) ) .
+								get_option( 'wcj_product_by_user_message_product_successfully_added', __( '"%product_title%" Twoja wycieczka zostala dodana!', 'woocommerce-jetpack' ) ) ) .
 							'</div></div>';
 					} else {
 						$notice_html .= '<div class="woocommerce"><div class="woocommerce-message">' .
@@ -322,7 +322,7 @@ class WCJ_Products_Add_Form_Shortcodes extends WCJ_Shortcodes {
 		}
 
 		$header_html .= '<h3>';
-		$header_html .= ( 0 == $atts['product_id'] ) ? __( 'Add New Product', 'woocommerce-jetpack' ) : __( 'Edit Product', 'woocommerce-jetpack' );
+		$header_html .= ( 0 == $atts['product_id'] ) ? __( 'Dodaj swoja oferte', 'woocommerce-jetpack' ) : __( 'Edit Product', 'woocommerce-jetpack' );
 		$header_html .= '</h3>';
 		$header_html .= '<form method="post" action="' . remove_query_arg( array( 'wcj_edit_product_image_delete', 'wcj_delete_product' ) ) .
 			'" enctype="multipart/form-data">'; // todo multipart only if image...
@@ -334,7 +334,7 @@ class WCJ_Products_Add_Form_Shortcodes extends WCJ_Shortcodes {
 		$table_data = array();
 		$input_style = 'width:100%;';
 		$table_data[] = array(
-			'<label for="wcj_add_new_product_title">' . __( 'Title', 'woocommerce-jetpack' ) . $required_mark_html_template . '</label>',
+			'<label for="wcj_add_new_product_title">' . __( 'Nazwa oferty', 'woocommerce-jetpack' ) . $required_mark_html_template . '</label>',
 			'<input required type="text" style="' . $input_style . '" id="wcj_add_new_product_title" name="wcj_add_new_product_title" value="' . ( ( 0 != $atts['product_id'] ) ?
 				$this->the_product->get_title() : $args['title'] ) . '">'
 		);
@@ -342,7 +342,7 @@ class WCJ_Products_Add_Form_Shortcodes extends WCJ_Shortcodes {
 			$required_html      = ( 'yes' === $atts['desc_required'] ) ? ' required' : '';
 			$required_mark_html = ( 'yes' === $atts['desc_required'] ) ? $required_mark_html_template : '';
 			$table_data[] = array(
-				'<label for="wcj_add_new_product_desc">' . __( 'Description', 'woocommerce-jetpack' ) . $required_mark_html . '</label>',
+				'<label for="wcj_add_new_product_desc">' . __( 'Opis', 'woocommerce-jetpack' ) . $required_mark_html . '</label>',
 				'<textarea' . $required_html . ' style="' . $input_style . '" id="wcj_add_new_product_desc" name="wcj_add_new_product_desc">' . ( ( 0 != $atts['product_id'] ) ?
 					get_post_field( 'post_content', $atts['product_id'] ) : $args['desc'] ) . '</textarea>'
 			);
@@ -351,7 +351,7 @@ class WCJ_Products_Add_Form_Shortcodes extends WCJ_Shortcodes {
 			$required_html      = ( 'yes' === $atts['short_desc_required'] ) ? ' required' : '';
 			$required_mark_html = ( 'yes' === $atts['short_desc_required'] ) ? $required_mark_html_template : '';
 			$table_data[] = array(
-				'<label for="wcj_add_new_product_short_desc">' . __( 'Short Description', 'woocommerce-jetpack' ) . $required_mark_html . '</label>',
+				'<label for="wcj_add_new_product_short_desc">' . __( 'Krotki opis', 'woocommerce-jetpack' ) . $required_mark_html . '</label>',
 				'<textarea' . $required_html . ' style="' . $input_style . '" id="wcj_add_new_product_short_desc" name="wcj_add_new_product_short_desc">' .
 					( ( 0 != $atts['product_id'] ) ? get_post_field( 'post_excerpt', $atts['product_id'] ) : $args['short_desc'] ) . '</textarea>'
 			);
@@ -370,7 +370,7 @@ class WCJ_Products_Add_Form_Shortcodes extends WCJ_Shortcodes {
 				$the_field = $new_image_field;
 			}
 			$table_data[] = array(
-				'<label for="wcj_add_new_product_image">' . __( 'Image', 'woocommerce-jetpack' ) . $required_mark_html . '</label>',
+				'<label for="wcj_add_new_product_image">' . __( 'Zdjecia', 'woocommerce-jetpack' ) . $required_mark_html . '</label>',
 				$the_field
 			);
 		}
@@ -378,7 +378,7 @@ class WCJ_Products_Add_Form_Shortcodes extends WCJ_Shortcodes {
 			$required_html      = ( 'yes' === $atts['regular_price_required'] ) ? ' required' : '';
 			$required_mark_html = ( 'yes' === $atts['regular_price_required'] ) ? $required_mark_html_template : '';
 			$table_data[] = array(
-				'<label for="wcj_add_new_product_regular_price">' . __( 'Regular Price', 'woocommerce-jetpack' ) . $required_mark_html . '</label>',
+				'<label for="wcj_add_new_product_regular_price">' . __( 'Cena', 'woocommerce-jetpack' ) . $required_mark_html . '</label>',
 				'<input' . $required_html . ' type="number" min="0" step="' . $price_step . '" id="wcj_add_new_product_regular_price" name="wcj_add_new_product_regular_price" value="' .
 					( ( 0 != $atts['product_id'] ) ? get_post_meta( $atts['product_id'], '_regular_price', true ) : $args['regular_price'] ) . '">'
 			);
@@ -403,12 +403,12 @@ class WCJ_Products_Add_Form_Shortcodes extends WCJ_Shortcodes {
 		}
 		$table_data = $this->maybe_add_taxonomy_field(
 			$atts, $args,
-			'cats', 'product_cat', __( 'Categories', 'woocommerce-jetpack' ),
+			'cats', 'product_cat', __( 'Kategoria', 'woocommerce-jetpack' ),
 			$input_style, $required_mark_html_template, $table_data
 		);
 		$table_data = $this->maybe_add_taxonomy_field(
 			$atts, $args,
-			'tags', 'product_tag', __( 'Tags', 'woocommerce-jetpack' ),
+			'tags', 'product_tag', __( 'Tagi', 'woocommerce-jetpack' ),
 			$input_style, $required_mark_html_template, $table_data
 		);
 		for ( $i = 1; $i <= $this->the_atts['custom_taxonomies_total']; $i++ ) {
@@ -422,7 +422,7 @@ class WCJ_Products_Add_Form_Shortcodes extends WCJ_Shortcodes {
 		$input_fields_html .= wcj_get_table_html( $table_data, array( 'table_class' => 'widefat', 'table_heading_type' => 'vertical', ) );
 
 		$footer_html .= '<input type="submit" class="button" name="wcj_add_new_product" value="' . ( ( 0 == $atts['product_id'] ) ?
-			__( 'Add', 'woocommerce-jetpack' ) : __( 'Edit', 'woocommerce-jetpack' ) ) . '">';
+			__( 'Dodaj', 'woocommerce-jetpack' ) : __( 'Edit', 'woocommerce-jetpack' ) ) . '">';
 		$footer_html .= '</form>';
 
 		return $notice_html . $header_html . $input_fields_html . $footer_html;
