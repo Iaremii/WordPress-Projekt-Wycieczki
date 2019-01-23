@@ -1122,4 +1122,19 @@ final class OCEANWP_Theme_Class {
 	}
 
 }
+
+if ( post_type_exists( 'product' ) ) {
+	add_post_type_support( 'product', 'author' );
+}
+
+function woocommerce_shortcode_products_orderby( $args ){
+	if (is_author()) {
+		$author = get_user_by( 'slug', get_query_var( 'author_name' ) );
+		$args['author'] = $author->ID;
+	}
+
+	return $args;
+}
+add_filter( 'woocommerce_shortcode_products_query', 'woocommerce_shortcode_products_orderby' );
+
 new OCEANWP_Theme_Class;

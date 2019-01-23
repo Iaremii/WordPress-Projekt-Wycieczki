@@ -20,6 +20,7 @@ foreach ( $elements as $element ) {
 	// Title
 	if ( 'title' == $element ) {
 		woocommerce_template_single_title();
+		
 	}
 
 	// Rating
@@ -35,16 +36,21 @@ foreach ( $elements as $element ) {
 	// Excerpt
 	if ( 'excerpt' == $element ) {
 		woocommerce_template_single_excerpt();
+		echo do_shortcode('<span> Wycieczke przeprowadzi :<a href="[wcj_product_author_link_all_posts]"> [wcj_product_author]</span>');
 	}
 
 	// Quantity & Add to cart button
 	if ( 'quantity-button' == $element ) {
 		woocommerce_template_single_add_to_cart();
+		
+		echo do_shortcode('[caldera_form_modal id="CF5c4852e37e3ed"]<span class="single_add_to_cart_button button alt" style="background:red">Zglos problem</span>[/caldera_form_modal]');
+
 	}
 
 	// Meta
 	if ( 'meta' == $element ) {
 		woocommerce_template_single_meta();
+		
 	}
 
 	do_action( 'ocean_after_single_product_' . $element );

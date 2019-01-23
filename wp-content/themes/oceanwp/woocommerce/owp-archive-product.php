@@ -93,9 +93,11 @@ echo '<ul class="woo-entry-inner clr">';
 					} else {
 						echo wp_trim_words( strip_shortcodes( $post->post_excerpt ), $length );
 					}
+					
+					
 				echo '</li>';
 			}
-
+			
 			do_action( 'ocean_after_archive_product_description' );
 
 		}

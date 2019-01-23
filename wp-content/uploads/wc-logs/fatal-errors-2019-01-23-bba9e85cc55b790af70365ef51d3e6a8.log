@@ -1,0 +1,19 @@
+2019-01-23T14:46:52+00:00 CRITICAL syntax error, unexpected '}', expecting ',' or ';' w W:\domains\Wycieczki\wp-content\themes\oceanwp\woocommerce\owp-single-product.php w linii 49
+
+2019-01-23T15:19:03+00:00 CRITICAL syntax error, unexpected 'else' (T_ELSE), expecting end of file w W:\domains\Wycieczki\wp-content\themes\oceanwp\author.php w linii 39
+
+2019-01-23T15:29:56+00:00 CRITICAL Uncaught Error: Call to a member function set() on array in W:\domains\Wycieczki\wp-content\themes\oceanwp\functions.php:1132
+Stack trace:
+#0 W:\domains\Wycieczki\wp-includes\class-wp-hook.php(288): so_27975262_product_query(Array)
+#1 W:\domains\Wycieczki\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 W:\domains\Wycieczki\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-products.php(234): apply_filters('woocommerce_sho...', Array, Array, 'products')
+#3 W:\domains\Wycieczki\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-products.php(60): WC_Shortcode_Products->parse_query_args()
+#4 W:\domains\Wycieczki\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php(262): WC_Shortcode_Products->__construct(Array, 'products')
+#5 W:\domains\Wycieczki\wp-includes\shortcodes.php(319): WC_Shortcodes::products(Array, '', 'products')
+#6 [internal function]: do_shortcode_tag(Array)
+#7 W:\domains\Wycieczki\wp-includes\shortcodes.php(197): preg_replace_cal w W:\domains\Wycieczki\wp-content\themes\oceanwp\functions.php w linii 1132
+
+2019-01-23T15:33:03+00:00 CRITICAL syntax error, unexpected '=>' (T_DOUBLE_ARROW) w W:\domains\Wycieczki\wp-content\themes\oceanwp\functions.php w linii 1134
+
+2019-01-23T16:20:45+00:00 CRITICAL syntax error, unexpected '}', expecting ',' or ';' w W:\domains\Wycieczki\wp-content\themes\oceanwp\woocommerce\owp-single-product.php w linii 24
+
