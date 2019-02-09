@@ -15,7 +15,7 @@
 get_header(); ?>
 
 	<?php do_action( 'ocean_before_content_wrap' ); ?>
-
+<!-- доданий код --> 
 	<div id="content-wrap" class="container clr">
 
 		<?php do_action( 'ocean_before_primary' ); ?>
@@ -24,6 +24,7 @@ get_header(); ?>
 
 
 		$author = get_user_by( 'slug', get_query_var( 'author_name' ) );
+		
 		if ($_REQUEST['user-rating']) {
 			update_field( 'rating', $_REQUEST['user-rating'], 'user_'.$author->ID );
 		}
@@ -31,30 +32,34 @@ get_header(); ?>
 		$avatar = get_avatar_url($author->ID);
 
 		?>
-
+		<center>
 		<div class="b-author">
 			<div class="b-author__name"><?php  echo $author->user_login ?></div>
+			<div class="b-author__email"><?php  echo $author->user_email . '<br />' ?></div>
 			<div class="b-author__rating"><div class="star-rating"><span style="width:<?php echo (int) $rating * 20 ?>%"></span></div></div>
 			<div class="b-author__avatar"><img src="<?php echo $avatar ?>"/></div>
 			<?php echo
 			'<form><label for="user-rating">' . esc_html__( 'Your rating', 'woocommerce' ) . '</label><select name="user-rating" id="user-rating" aria-required="true" required>
-			<option value="">' . esc_html__( 'Rate&hellip;', 'woocommerce' ) . '</option>
-			<option value="5">' . esc_html__( 'Perfect', 'woocommerce' ) . '</option>
-			<option value="4">' . esc_html__( 'Good', 'woocommerce' ) . '</option>
-			<option value="3">' . esc_html__( 'Average', 'woocommerce' ) . '</option>
-			<option value="2">' . esc_html__( 'Not that bad', 'woocommerce' ) . '</option>
-			<option value="1">' . esc_html__( 'Very poor', 'woocommerce' ) . '</option>
-		</select>
-			<button type="submit">Testt</button>
-		</form>';
+				<option value="">' . esc_html__( 'Rate&hellip;', 'woocommerce' ) . '</option>
+				<option value="5">' . esc_html__( 'Perfect', 'woocommerce' ) . '</option>
+				<option value="4">' . esc_html__( 'Good', 'woocommerce' ) . '</option>
+				<option value="3">' . esc_html__( 'Average', 'woocommerce' ) . '</option>
+				<option value="2">' . esc_html__( 'Not that bad', 'woocommerce' ) . '</option>
+				<option value="1">' . esc_html__( 'Very poor', 'woocommerce' ) . '</option>
+				</select>
+				<br> <button type="submit"> Ocen uzytkownika </button>
+			</form>';
 		?>
 		</div>
+		</center>
+		<!-- доданий код --> 
 
 		<div id="primary" class="content-area clr">
 
 			<?php do_action( 'ocean_before_content' ); ?>
 
-			<div id="content" class="site-content clr">
+			<div id="content" class="site-content clr"> 
+				<br> <h2> Wszystkie oferty uzytkownika : </h2>
 
 				<?php do_action( 'ocean_before_content_inner' ); ?>
 

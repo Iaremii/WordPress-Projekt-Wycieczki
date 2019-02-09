@@ -1971,9 +1971,9 @@ if ( ! function_exists( 'oceanwp_get_page_subheading' ) ) {
 		}
 
 		// Author
-		elseif ( is_author() ) {
+		/*elseif ( is_author() ) {
 			$subheading = esc_html__( 'This author has written', 'oceanwp' ) .' '. get_the_author_posts() .' '. esc_html__( 'articles', 'oceanwp' );
-		}
+		}*/
 
 		// Archives
 		elseif ( is_post_type_archive() ) {

@@ -42,7 +42,7 @@ foreach ( $elements as $element ) {
 	// Quantity & Add to cart button
 	if ( 'quantity-button' == $element ) {
 		woocommerce_template_single_add_to_cart();
-		
+		//Dodany kod ( knopka i silka )
 		echo do_shortcode('[caldera_form_modal id="CF5c4852e37e3ed"]<span class="single_add_to_cart_button button alt" style="background:red">Zglos problem</span>[/caldera_form_modal]');
 
 	}
